@@ -1,0 +1,30 @@
+<head>
+  <title>demo</title>
+</head>
+
+<body>
+  <h1>Welcome to my message board!</h1>
+  {{> loginButtons}}
+  {{> home}}
+  {{> list}}
+</body>
+
+<template name="home">
+  {{#if currentUser}}
+    <h2>Enter a new message</h2>
+    <form>
+      <input type="text" name="message">
+      <input type="submit">
+    </form>
+  {{else}}
+    <p>Please login to add entries</p>
+  {{/if}}
+</template>
+
+<template name="list">
+  <ul>
+    {{#each listOfEntries}}
+      <li>{{text}} <small>({{dateAdded}})</small></li>
+    {{/each}}
+  </ul>
+</template>
